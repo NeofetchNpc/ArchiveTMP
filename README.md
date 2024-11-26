@@ -6,6 +6,7 @@
 </div>
 
 ## 🛑 Endpoint Cdn Dari NST
-```sh
+```js
+// hanya file gambar, video, dan audio.
 https://cdn.neastooid.xyz/uploads/id_file
 ```
