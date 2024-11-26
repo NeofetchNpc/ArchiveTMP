@@ -25,7 +25,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     // URL CDN-like
-    const cdnUrl = `https://cdn.neastooid.xyz/api/tmp/${randomFile}`;
+    const cdnUrl = `https://cdn.neastooid.xyz/uploads/${randomFile}`;
 
     return res.json({
       data: cdnUrl,
