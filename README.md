@@ -6,5 +6,5 @@
 
 ## 🛑 Endpoint Cdn Dari NST
 ```sh
-https://cdn.neastooid.xyz/id_file
+https://cdn.neastooid.xyz/uploads/id_file
 ```
