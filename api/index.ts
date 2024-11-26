@@ -3,7 +3,7 @@ import path from 'path';
 import fs from 'fs';
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
-  const directoryPath = path.resolve('./uploads');
+  const directoryPath = path.resolve('../uploads');
 
   try {
     // Baca semua file dalam folder 'uploaders' dan filter hanya gambar atau video
