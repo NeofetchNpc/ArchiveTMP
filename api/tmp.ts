@@ -6,7 +6,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   const directoryPath = path.resolve('./uploads');
 
   try {
-    // Baca semua file dalam folder 'uploads' dan filter hanya gambar
+    // Filter hanya file gambar
     const files = fs.readdirSync(directoryPath).filter((file) =>
       /\.(png|jpg|jpeg)$/i.test(file)
     );
@@ -17,7 +17,15 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
     // Pilih file secara acak
     const randomFile = files[Math.floor(Math.random() * files.length)];
-    const cdnUrl = `https://${req.headers.host}/api/tmp/${randomFile}`; // URL CDN-like
+    const filePath = path.join(directoryPath, randomFile);
+
+    // Validasi apakah file ada
+    if (!fs.existsSync(filePath)) {
+      return res.status(500).json({ error: 'File not found on server.' });
+    }
+
+    // URL CDN-like
+    const cdnUrl = `https://cdn.neastooid.xyz/api/tmp/${randomFile}`;
 
     return res.json({
       data: cdnUrl,
