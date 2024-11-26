@@ -17,7 +17,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
     // Pilih file secara acak
     const randomFile = files[Math.floor(Math.random() * files.length)];
-    const cdnUrl = `https://${req.headers.host}/${randomFile}`; // URL CDN-like
+    const cdnUrl = `https://${req.headers.host}/api/${randomFile}`; // URL CDN-like
 
     return res.json({
       data: cdnUrl,
