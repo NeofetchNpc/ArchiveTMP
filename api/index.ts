@@ -4,23 +4,27 @@ import fs from 'fs';
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
   const directoryPath = path.resolve('./uploaders');
+
   try {
-    const files = fs.readdirSync(directoryPath).filter(file => /\.(png|jpg|jpeg)$/i.test(file));
+    // Baca semua file dalam folder 'uploaders' dan filter hanya gambar atau video
+    const files = fs.readdirSync(directoryPath).filter((file) =>
+      /\.(png|jpg|jpeg|mp4|mkv|avi|webm|mov)$/i.test(file)
+    );
 
     if (files.length === 0) {
-      return res.status(404).json({ error: 'No images found in the directory.' });
+      return res.status(404).json({ error: 'No images or videos found in the directory.' });
     }
 
-    // Randomly select a file
+    // Pilih file secara acak
     const randomFile = files[Math.floor(Math.random() * files.length)];
-    const cdnUrl = `https://${req.headers.host}/${randomFile}`; // Generates CDN-like URL
+    const cdnUrl = `https://${req.headers.host}/${randomFile}`; // URL CDN-like
 
     return res.json({
       data: cdnUrl,
-      status: succes,
-      creator: yusupkakuu
+      status: 'success',
+      creator: 'yusupkakuu',
     });
   } catch (error) {
-    return res.status(500).json({ error: 'Failed to process images.' });
+    return res.status(500).json({ error: 'Failed to process files.' });
   }
 }
