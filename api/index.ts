@@ -3,16 +3,16 @@ import path from 'path';
 import fs from 'fs';
 
 export default function handler(req: VercelRequest, res: VercelResponse) {
-  const directoryPath = path.resolve('../uploads');
+  const directoryPath = path.resolve('./uploads');
 
   try {
-    // Baca semua file dalam folder 'uploaders' dan filter hanya gambar atau video
+    // Baca semua file dalam folder 'uploads' dan filter hanya gambar
     const files = fs.readdirSync(directoryPath).filter((file) =>
-      /\.(png|jpg|jpeg|mp4|mkv|avi|webm|mov)$/i.test(file)
+      /\.(png|jpg|jpeg)$/i.test(file)
     );
 
     if (files.length === 0) {
-      return res.status(404).json({ error: 'No images or videos found in the directory.' });
+      return res.status(404).json({ error: 'No images found in the directory.' });
     }
 
     // Pilih file secara acak
