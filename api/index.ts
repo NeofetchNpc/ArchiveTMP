@@ -8,7 +8,7 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
   try {
     // Filter hanya file gambar
     const files = fs.readdirSync(directoryPath).filter((file) =>
-      /\.(png|jpg|jpeg)$/i.test(file)
+      /\.(png|jpg|jpeg|mp4|mkv|avi|webm|mov)$/i.test(file)
     );
 
     if (files.length === 0) {
