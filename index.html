@@ -1,1 +1,45 @@
-NGENTOT
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://raw.githubusercontent.com/NeofetchNpc/ArchiveTMP/c94242a98bf2e7a22e53d4f253cbe7e094073671/uploads/00af7c4456e08ab8aa05bacacc583f91.jpg" type="image/png">
+  <title>CDN API</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Redirect to Cosplay API</h1>
+  <button id="redirect-btn">Go to /api/cosplay</button>
+
+  <script>
+    // Redirect button functionality
+    document.getElementById("redirect-btn").addEventListener("click", () => {
+      window.location.href = "/api/cosplay";
+    });
+  </script>
+</body>
+</html>
